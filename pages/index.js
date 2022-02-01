@@ -44,13 +44,38 @@ export default function Home() {
               ))}
             </ol>
           ) : (
-            <p>You don't have anything to do!</p>
+            <p>You have no todos!</p>
           )}
         </div>
       </main>
     </>
   );
 }
+
+
+function AddTodoForm({ addTodo }) {
+  const [title, setTitle] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addTodo({ title });
+    setTitle("");
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />  
+      <button>Add Todo</button>
+    </form>
+  );
+
+
+
+ 
 
 function AddTodoForm({ addTodo }) {
   const { id } = useUser();
@@ -75,4 +100,4 @@ function AddTodoForm({ addTodo }) {
       <button>Add Todo</button>
     </form>
   );
-}
+}}
