@@ -57,6 +57,8 @@ function AddTodoForm({ addTodo }) {
   const [newTodo, setNewTodo] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // currently returning null
     if (newTodo === "") {
       alert("If you have nothing to do, you don't need me!");
       return;
